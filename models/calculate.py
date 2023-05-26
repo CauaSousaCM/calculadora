@@ -44,11 +44,47 @@ class Calculate:
         
     @property
     def _generate_value(self: object) -> int:
-        pass
+        if self.difficult == 1:
+            return randint(0, 10)
+        elif self.difficult == 2:
+            return randint(0, 100)
+        elif self.difficult == 3:
+            return randint(0, 1000)
+        elif self.difficult == 4:
+            return randint(0, 10000)
+        else:
+            return randint(0, 100000)
     
     @property
     def _generate_result(self:object) -> int:
-        pass
-    
+        if self.operation == 1:
+            return (self.value1 + self.value2)
+        elif self.operation == 2:
+            return (self.value1 - self.value2)
+        else:
+            return (self.value1 * self.value2)
+        
+    @property
+    def _op_symbol(self: object) -> str:
+        if self.operation == 1:
+            return '+'
+        elif self.operation == 2:
+            return '-'
+        else:
+            return '*'
+        
     def check_result(self: object, response: int) -> bool:
-        pass         
+        right: bool = False
+        if self.result == response:
+            print('Resposta correta!')
+        else:
+            print('Resposta Errada!')
+        print(f'{self.value1}')
+        return right
+    
+    def print_operation(self: object) -> None:
+        print(
+            f'{self.value1} {self._op_symbol} '\
+            f'{self.value2} = ?'
+        )
+    
