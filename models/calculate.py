@@ -79,7 +79,10 @@ class Calculate:
             print('Resposta correta!')
         else:
             print('Resposta Errada!')
-        print(f'{self.value1}')
+        print(
+            f'{self.value1} {self._op_symbol} '\
+            f'{self.value2} = {self.result}'
+        )
         return right
     
     def print_operation(self: object) -> None:
